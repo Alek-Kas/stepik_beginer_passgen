@@ -7,7 +7,7 @@ punctuation = "!#$%&*+-=?@^_."
 chars = ''  # будет содержать все символы, которые могут быть в генерируемом пароле.
 
 
-def pass_gen():
+def generate_password():
     pass
 
 
@@ -24,4 +24,4 @@ q = input()
 print(f'Использовать в коде {punctuation}', end='')
 q = input()
 for i in range(pass_total):
-    pass_gen(chars, pass_len)
+    generate_password(pass_len, chars)
