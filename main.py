@@ -12,7 +12,7 @@ def pass_gen():
 
 
 print('Количество паролей для генерации - ', end='')
-pass_len = int(input())
+pass_total = int(input())
 print('Длину одного пароля - ', end='')
 pass_len = int(input())
 print(f'Использовать в коде {digits}', end='')
@@ -23,3 +23,5 @@ print(f'Использовать в коде {uppercase_letters}', end='')
 q = input()
 print(f'Использовать в коде {punctuation}', end='')
 q = input()
+for i in range(pass_total):
+    pass_gen(chars, pass_len)
