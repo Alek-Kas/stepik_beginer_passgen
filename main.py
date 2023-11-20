@@ -4,7 +4,7 @@ digits = "0123456789"
 lowercase_letters = "abcdefghijklmnopqrstuvwxyz"
 uppercase_letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 punctuation = "!#$%&*+-=?@^_."
-ambiguous = "il1Lo0O"
+ambiguous = "iIl1Lo0O"
 chars = ''  # будет содержать все символы, которые могут быть в генерируемом пароле.
 
 
@@ -54,14 +54,11 @@ def password_punctuation():
 
 def password_ambiguous(chars):
     print(f'Введите 1, если хотите исключить из пароля не однозначные символы: ', end='')
-    chars_out = chars
     q = input()
     if q == '1':
-        chars_out = ''
-        for c in chars:
-            if c not in ambiguous:
-                chars_out += c
-    return chars_out
+        for c in ambiguous:
+            chars = chars.replace(c, '')
+    return chars
 
 
 def generate_password(pass_len, chars):
@@ -76,6 +73,7 @@ chars += password_lowercase_letters()
 chars += password_uppercase_letters()
 chars += password_punctuation()
 chars = password_ambiguous(chars)
+print(chars)
 
 if len(chars) < 1:
     print('Недостаточно символов для генерации пароля')
